@@ -132,3 +132,4 @@ dmypy.json
 # models
 /stable-diffusion/models/ldm/stable-diffusion-v1/*
 /outputs/*
+/cupscale/*
