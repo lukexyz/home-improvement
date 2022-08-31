@@ -80,9 +80,12 @@ with autocast("cuda"):
 
 </br>
 </br>
+
 # Training Data Visualisations
 
 `LAION-Aesthetics v2 6+` on Datasette:
+
+From [this blog post](https://waxy.org/2022/08/exploring-12-million-of-the-images-used-to-train-stable-diffusions-image-generator/), and [Hackernews](https://news.ycombinator.com/item?id=32655497) conversation.
 
 1. Top Artists  
    https://laion-aesthetic.datasette.io/laion-aesthetic-6pls/artists?_sort_desc=image_counts
