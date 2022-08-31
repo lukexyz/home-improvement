@@ -63,6 +63,23 @@ Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/w
 </br>
 </br>
 
+# 🖼️→🖼️ Inpainting with `diffusers`
+
+📹 From tutorial from [1littlecoder](https://www.youtube.com/watch?v=N913hReVxMM) on youtube and accompanying [Colab Notebook](https://colab.research.google.com/drive/1R2HJvufacjy7GNrGCwgSE3LbQBk5qcS3?usp=sharing#scrollTo=BnobY4zi0Pjs).
+
+🤗 Using [Huggingface `diffusers` library](https://github.com/huggingface/diffusers).
+
+![Inpainting_given_example](media/castle_inpainting.png)
+
+```py
+prompt = "A fantasy castle with a dragon defending. Trending on artstation, precise lineart, award winning, divine"
+
+with autocast("cuda"):
+    images = pipe(prompt=prompt, init_image=init_image, mask_image=mask_image, strength=0.7)["sample"]
+```
+
+</br>
+</br>
 # Training Data Visualisations
 
 `LAION-Aesthetics v2 6+` on Datasette:
