@@ -52,9 +52,9 @@ Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/w
 
 > _A distant futuristic city full of tall buildings inside a huge transparent glass dome, In the middle of a barren desert full of large dunes, Sun rays, Artstation, Dark sky full of stars with a shiny sun, Massive scale, Fog, Highly detailed, Cinematic, Colorful_
 
-![img2img_given_example](inputs\011_iterative_design.JPG)
+![img2img_given_example](inputs/011_iterative_design.JPG)
 
-![img2img_given_example](inputs\021_iterative_design.JPG)
+![img2img_given_example](inputs/021_iterative_design.JPG)
 
 ```py
 !python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength 0.8 --n_iter 2 --n_samples 3 --H 512 --W 512 --seed 12 --outdir {outdir} --ddim_steps 200
