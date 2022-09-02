@@ -10,13 +10,33 @@ Exterior design using stable-diffusion 🏡
 2. `Basujindal` fork optimisation for lesser VRAM  
    [Optimized Stable Diffusion (Sort of)](https://github.com/basujindal/stable-diffusion)
 
-# 🖼️→🖼️ `img2img`
 
-Using an input image to create unlimited variations.
+</br>  
+</br>
 
-- Img from [`jansteffen` on r/stablediffusion](https://www.reddit.com/r/StableDiffusion/comments/wwmjih/converting_a_minecraft_screenshot_into_a_painting/)
 
-![img2img example](media/img2img_examples.JPG)
+
+# 🖼️→🖼️ `img2img` iterative improvements
+
+Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/wzlmty/its_some_kind_of_black_magic_i_swear/) 🔗
+
+- Using the output of one image to generate a new image.
+- This iterative process can make increasingly complex and customizable images.
+
+> _A distant futuristic city full of tall buildings inside a huge transparent glass dome, In the middle of a barren desert full of large dunes, Sun rays, Artstation, Dark sky full of stars with a shiny sun, Massive scale, Fog, Highly detailed, Cinematic, Colorful_
+
+</br>
+
+![img2img_given_example](inputs/011_iterative_design.JPG)
+
+![img2img_given_example](inputs/021_iterative_design.JPG)
+
+```py
+!python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength 0.8 --n_iter 2 --n_samples 3 --H 512 --W 512 --seed 12 --outdir {outdir} --ddim_steps 200
+```
+
+</br>
+</br>
 
 # 🖼️→🖼️ `img2img` with custom images
 
@@ -31,34 +51,6 @@ for s in strength:
 
 ![home example](media/home_pic_dog.JPG)
 
-</br>  
-</br>
-
-# 🖼️→🖼️ `img2img` with `hand-drawn` sketch
-
-[Example shown on `CompVis` project page](https://github.com/CompVis/stable-diffusion#image-modification-with-stable-diffusion) 🔗
-
-![img2img_given_example](media/img2img_given_example.JPG)
-
-</br>
-</br>
-
-# 🖼️→🖼️ Iterative improvements with a sketch
-
-Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/wzlmty/its_some_kind_of_black_magic_i_swear/) 🔗
-
-- Using the output of one image to generate a new image.
-- This iterative process can make increasingly complex and customizable images.
-
-> _A distant futuristic city full of tall buildings inside a huge transparent glass dome, In the middle of a barren desert full of large dunes, Sun rays, Artstation, Dark sky full of stars with a shiny sun, Massive scale, Fog, Highly detailed, Cinematic, Colorful_
-
-![img2img_given_example](inputs/011_iterative_design.JPG)
-
-![img2img_given_example](inputs/021_iterative_design.JPG)
-
-```py
-!python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength 0.8 --n_iter 2 --n_samples 3 --H 512 --W 512 --seed 12 --outdir {outdir} --ddim_steps 200
-```
 
 </br>
 </br>
@@ -78,8 +70,36 @@ with autocast("cuda"):
     images = pipe(prompt=prompt, init_image=init_image, mask_image=mask_image, strength=0.7)["sample"]
 ```
 
+
+
 </br>
 </br>
+
+# 🖼️→🖼️ `img2img` with `strength` variation
+
+Using an input image to create unlimited variations.
+
+- Img from [`jansteffen` on r/stablediffusion](https://www.reddit.com/r/StableDiffusion/comments/wwmjih/converting_a_minecraft_screenshot_into_a_painting/)
+
+![img2img example](media/img2img_examples.JPG)
+
+</br>
+</br>
+
+
+# 📱🖼️ Gradio WebUI by `hlky` 
+
+Add submodule to repo.  
+```sh
+git submodule add https://github.com/hlky/stable-diffusion-webui.git stable-diffusion-webui
+```
+
+![Gradio_webui_example](media/gradio.jpg)
+
+
+</br>
+</br>
+
 
 # Training Data Visualisations
 
@@ -92,3 +112,8 @@ From [this blog post](https://waxy.org/2022/08/exploring-12-million-of-the-image
 
 2. Search by Artist  
    https://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=%22Thomas+Kinkade%22&_sort=rowid
+
+
+</br>
+</br>
+
