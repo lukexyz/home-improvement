@@ -1,6 +1,6 @@
 # home-improvement
 
-Exterior design using stable-diffusion 🏡
+Exterior design using stable-diffusion 🏡 → General [install instructions](https://github.com/hlky/stable-diffusion/wiki/Installation).
 
 #### References
 
@@ -11,11 +11,10 @@ Exterior design using stable-diffusion 🏡
    [Optimized Stable Diffusion (Sort of)](https://github.com/basujindal/stable-diffusion)
 
 
+
 </br>  
-</br>
 
-
-
+# Features
 # 🖼️→🖼️ `img2img` iterative improvements
 
 Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/wzlmty/its_some_kind_of_black_magic_i_swear/) 🔗
@@ -32,7 +31,8 @@ Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/w
 ![img2img_given_example](inputs/021_iterative_design.JPG)
 
 ```py
-!python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength 0.8 --n_iter 2 --n_samples 3 --H 512 --W 512 --seed 12 --outdir {outdir} --ddim_steps 200
+!python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength 0.8 
+--n_iter 2 --n_samples 3 --H 512 --W 512 --seed 12 --outdir {outdir} --ddim_steps 200
 ```
 
 </br>
@@ -57,9 +57,13 @@ for s in strength:
 
 # 🖼️→🖼️ Inpainting with `diffusers`
 
-📹 From tutorial from [1littlecoder](https://www.youtube.com/watch?v=N913hReVxMM) on youtube and accompanying [Colab Notebook](https://colab.research.google.com/drive/1R2HJvufacjy7GNrGCwgSE3LbQBk5qcS3?usp=sharing#scrollTo=BnobY4zi0Pjs).
+Inpainting allows applying a layer mask to an area of interest – and then running `img2img` with a `text prompt` to generate new content.
 
-🤗 Using [Huggingface `diffusers` library](https://github.com/huggingface/diffusers).
+   - 📹 Tutorial from [1littlecoder](https://www.youtube.com/watch?v=N913hReVxMM) on youtube and accompanying [Colab Notebook](https://colab.research.google.com/drive/1R2HJvufacjy7GNrGCwgSE3LbQBk5qcS3?usp=sharing#scrollTo=BnobY4zi0Pjs).
+
+   - 🤗 Uses [Huggingface `diffusers` library](https://github.com/huggingface/diffusers).
+
+Example: Adding a dragon to the castle `(1)` and then adding flaming rubble to the gate `(2)`.
 
 ![Inpainting_given_example](media/castle_inpainting.png)
 
@@ -84,8 +88,6 @@ Using an input image to create unlimited variations.
 ![img2img example](media/img2img_examples.JPG)
 
 </br>
-</br>
-
 
 # 📱🖼️ Gradio WebUI by `hlky` 
 
@@ -99,7 +101,6 @@ git submodule add https://github.com/hlky/stable-diffusion-webui.git stable-diff
 
 </br>
 </br>
-
 
 # Training Data Visualisations
 
