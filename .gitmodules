@@ -1,3 +1,0 @@
-[submodule "stable-diffusion-webui"]
-	path = stable-diffusion-webui
-	url = https://github.com/hlky/stable-diffusion-webui.git
