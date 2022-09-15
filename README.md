@@ -68,7 +68,8 @@ Example: Adding a dragon to the castle `(1)` and then adding flaming rubble to t
 ![Inpainting_given_example](media/castle_inpainting.png)
 
 ```py
-prompt = "A fantasy castle with a dragon defending. Trending on artstation, precise lineart, award winning, divine"
+prompt = "A fantasy castle with a dragon defending. Trending on artstation, 
+          precise lineart, award winning, divine"
 
 with autocast("cuda"):
     images = pipe(prompt=prompt, init_image=init_image, mask_image=mask_image, strength=0.7)["sample"]
