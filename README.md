@@ -92,12 +92,10 @@ Using an input image to create unlimited variations.
 
 # 📱🖼️ Gradio WebUI by `hlky` 
 
-Add submodule to repo.  
-```sh
-git submodule add https://github.com/hlky/stable-diffusion-webui.git stable-diffusion-webui
-```
+Gradio webui by hlky https://github.com/sd-webui/stable-diffusion-webui
 
-![Gradio_webui_example](media/gradio.jpg)
+* Clone repo
+* Run `webui.bat` from windows explorer
 
 
 </br>
