@@ -1,6 +1,6 @@
 # home-improvement
 
-Exterior design using stable-diffusion 🏡
+Exterior design using stable-diffusion 🏡 → General [install instructions](https://github.com/hlky/stable-diffusion/wiki/Installation).
 
 #### References
 
@@ -10,13 +10,33 @@ Exterior design using stable-diffusion 🏡
 2. `Basujindal` fork optimisation for lesser VRAM  
    [Optimized Stable Diffusion (Sort of)](https://github.com/basujindal/stable-diffusion)
 
-# 🖼️→🖼️ `img2img`
 
-Using an input image to create unlimited variations.
 
-- Img from [`jansteffen` on r/stablediffusion](https://www.reddit.com/r/StableDiffusion/comments/wwmjih/converting_a_minecraft_screenshot_into_a_painting/)
+</br>  
 
-![img2img example](media/img2img_examples.JPG)
+# Features
+# 🖼️→🖼️ `img2img` iterative improvements
+
+Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/wzlmty/its_some_kind_of_black_magic_i_swear/) 🔗
+
+- Using the output of one image to generate a new image.
+- This iterative process can make increasingly complex and customizable images.
+
+> _A distant futuristic city full of tall buildings inside a huge transparent glass dome, In the middle of a barren desert full of large dunes, Sun rays, Artstation, Dark sky full of stars with a shiny sun, Massive scale, Fog, Highly detailed, Cinematic, Colorful_
+
+</br>
+
+![img2img_given_example](inputs/011_iterative_design.JPG)
+
+![img2img_given_example](inputs/021_iterative_design.JPG)
+
+```py
+!python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength 0.8 
+--n_iter 2 --n_samples 3 --H 512 --W 512 --seed 12 --outdir {outdir} --ddim_steps 200
+```
+
+</br>
+</br>
 
 # 🖼️→🖼️ `img2img` with custom images
 
@@ -31,52 +51,52 @@ for s in strength:
 
 ![home example](media/home_pic_dog.JPG)
 
-</br>  
-</br>
-
-# 🖼️→🖼️ `img2img` with `hand-drawn` sketch
-
-[Example shown on `CompVis` project page](https://github.com/CompVis/stable-diffusion#image-modification-with-stable-diffusion) 🔗
-
-![img2img_given_example](media/img2img_given_example.JPG)
-
-</br>
-</br>
-
-# 🖼️→🖼️ Iterative improvements with a sketch
-
-Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/wzlmty/its_some_kind_of_black_magic_i_swear/) 🔗
-
-- Using the output of one image to generate a new image.
-- This iterative process can make increasingly complex and customizable images.
-
-> _A distant futuristic city full of tall buildings inside a huge transparent glass dome, In the middle of a barren desert full of large dunes, Sun rays, Artstation, Dark sky full of stars with a shiny sun, Massive scale, Fog, Highly detailed, Cinematic, Colorful_
-
-![img2img_given_example](inputs/011_iterative_design.JPG)
-
-![img2img_given_example](inputs/021_iterative_design.JPG)
-
-```py
-!python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength 0.8 --n_iter 2 --n_samples 3 --H 512 --W 512 --seed 12 --outdir {outdir} --ddim_steps 200
-```
 
 </br>
 </br>
 
 # 🖼️→🖼️ Inpainting with `diffusers`
 
-📹 From tutorial from [1littlecoder](https://www.youtube.com/watch?v=N913hReVxMM) on youtube and accompanying [Colab Notebook](https://colab.research.google.com/drive/1R2HJvufacjy7GNrGCwgSE3LbQBk5qcS3?usp=sharing#scrollTo=BnobY4zi0Pjs).
+Inpainting allows applying a layer mask to an area of interest – and then running `img2img` with a `text prompt` to generate new content.
 
-🤗 Using [Huggingface `diffusers` library](https://github.com/huggingface/diffusers).
+   - 📹 Tutorial from [1littlecoder](https://www.youtube.com/watch?v=N913hReVxMM) on youtube and accompanying [Colab Notebook](https://colab.research.google.com/drive/1R2HJvufacjy7GNrGCwgSE3LbQBk5qcS3?usp=sharing#scrollTo=BnobY4zi0Pjs).
+
+   - 🤗 Uses [Huggingface `diffusers` library](https://github.com/huggingface/diffusers).
+
+Example: Adding a dragon to the castle `(1)` and then adding flaming rubble to the gate `(2)`.
 
 ![Inpainting_given_example](media/castle_inpainting.png)
 
 ```py
-prompt = "A fantasy castle with a dragon defending. Trending on artstation, precise lineart, award winning, divine"
+prompt = "A fantasy castle with a dragon defending. Trending on artstation, 
+          precise lineart, award winning, divine"
 
 with autocast("cuda"):
     images = pipe(prompt=prompt, init_image=init_image, mask_image=mask_image, strength=0.7)["sample"]
 ```
+
+
+
+</br>
+</br>
+
+# 🖼️→🖼️ `img2img` with `strength` variation
+
+Using an input image to create unlimited variations.
+
+- Img from [`jansteffen` on r/stablediffusion](https://www.reddit.com/r/StableDiffusion/comments/wwmjih/converting_a_minecraft_screenshot_into_a_painting/)
+
+![img2img example](media/img2img_examples.JPG)
+
+</br>
+
+# 📱🖼️ Gradio WebUI by `hlky` 
+
+Gradio webui by hlky https://github.com/sd-webui/stable-diffusion-webui
+
+* Clone repo
+* Run `webui.bat` from windows explorer
+
 
 </br>
 </br>
@@ -92,3 +112,8 @@ From [this blog post](https://waxy.org/2022/08/exploring-12-million-of-the-image
 
 2. Search by Artist  
    https://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=%22Thomas+Kinkade%22&_sort=rowid
+
+
+</br>
+</br>
+

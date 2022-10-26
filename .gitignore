@@ -133,3 +133,7 @@ dmypy.json
 /stable-diffusion/models/ldm/stable-diffusion-v1/*
 /outputs/*
 /cupscale/*
+
+# git submodule add https://github.com/hlky/stable-diffusion.git stable-diffusion-webui
+# /stable-diffusion-webui/
+/model.ckpt
