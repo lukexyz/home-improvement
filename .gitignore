@@ -137,3 +137,9 @@ dmypy.json
 # git submodule add https://github.com/hlky/stable-diffusion.git stable-diffusion-webui
 # /stable-diffusion-webui/
 /model.ckpt
+
+stable-diffusion-webui/
+stable-diffusion/
+stable-diffusion
+inpainting/
+inputs/

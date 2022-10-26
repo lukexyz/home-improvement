@@ -38,22 +38,16 @@ Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/w
 </br>
 </br>
 
-# 🖼️→🖼️ `img2img` with custom images
 
-```py
-pstring = "An fantasy english family home, dog in the foreground, fantasy, illustration, trending on artstation"
-input_img = "../inputs/halle_at_home_2021_s.JPG"
+# 🖼️→🖼️ Characters with Starting Sketch
 
-strength = range(30, 75, 5)
-for s in strength:
-    !python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength {s*0.01} --seed 200 --outdir {outdir}
-```
-
-![home example](media/home_pic_dog.JPG)
+![Inpainting_given_example](media/jobin-character-progression.png)
 
 
 </br>
 </br>
+
+
 
 # 🖼️→🖼️ Inpainting with `diffusers`
 
@@ -74,6 +68,28 @@ prompt = "A fantasy castle with a dragon defending. Trending on artstation,
 with autocast("cuda"):
     images = pipe(prompt=prompt, init_image=init_image, mask_image=mask_image, strength=0.7)["sample"]
 ```
+
+
+
+# 🖼️→🖼️ `img2img` with custom images
+
+```py
+pstring = "An fantasy english family home, dog in the foreground, fantasy, illustration, trending on artstation"
+input_img = "../inputs/halle_at_home_2021_s.JPG"
+
+strength = range(30, 75, 5)
+for s in strength:
+    !python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength {s*0.01} --seed 200 --outdir {outdir}
+```
+
+![home example](media/home_pic_dog.JPG)
+
+
+
+
+
+
+
 
 
 
