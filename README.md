@@ -10,20 +10,14 @@ Exterior design using stable-diffusion 🏡 → General [install instructions](h
 2. `Basujindal` fork optimisation for lesser VRAM  
    [Optimized Stable Diffusion (Sort of)](https://github.com/basujindal/stable-diffusion)
 
+3. `ControlNet`  
+https://github.com/lllyasviel/ControlNet
 
-# 🎨→🖼️ Generation from scratch with `MidJourney` + `controlnet` 
-1. **Midjourney**
-```py
-line art drawing of top down landscape 
-architectural plan of a classic english garden --s 1 --v 4 --q 2 --s 5000
-```
-2. **Stable Diffusion** + **ControlNet** with canny-fp16
-```py
-landscape garden with flowers, professional photograph, acurate, intricate
-```
-![midjourney example](media/midjourney-garden.png)
+
 
 </br>  
+
+
 
 # 🖼️→🖼️ `img2img` with custom images
 
@@ -40,10 +34,42 @@ for s in strength:
 
 
 
+# 🎨→🖼️ `controlnet` concept generation
+
+* 🏠 Exterior design with stable diffusion with [controlnet](https://github.com/lllyasviel/ControlNet), canny-fp16 edge detection.  
+
+
+```py
+prompt = "modern english front garden, with traditional lush green lawn and striking architectural design"
+```
+
+![controlnet home example](media/controlnet_home.png)
+
+* Alternative edge control with `hed-fp16`  
+![controlnet backyard example](media/controlnet_backyard.png)
+
+
+# 🎨→🖼️ Generation from scratch with `MidJourney` + `controlnet` 
+1. **Midjourney** generation from prompt
+```py
+line art drawing of top down landscape 
+architectural plan of a classic english garden --s 1 --v 4 --q 2 --s 5000
+```
+2. **Stable Diffusion** + **ControlNet** with canny-fp16
+```py
+landscape garden with flowers, professional photograph, acurate, intricate
+```
+![midjourney example](media/controlnet_midjourney.png)
 
 
 
-# Features
+</br>  
+
+
+
+
+
+
 # 🖼️→🖼️ `img2img` iterative improvements
 
 Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/wzlmty/its_some_kind_of_black_magic_i_swear/) 🔗
