@@ -11,8 +11,37 @@ Exterior design using stable-diffusion 🏡 → General [install instructions](h
    [Optimized Stable Diffusion (Sort of)](https://github.com/basujindal/stable-diffusion)
 
 
+# 🎨→🖼️ Generation from scratch with `MidJourney` + `controlnet` 
+1. **Midjourney**
+```py
+line art drawing of top down landscape 
+architectural plan of a classic english garden --s 1 --v 4 --q 2 --s 5000
+```
+2. **Stable Diffusion** + **ControlNet** with canny-fp16
+```py
+landscape garden with flowers, professional photograph, acurate, intricate
+```
+![midjourney example](media/midjourney-garden.png)
 
 </br>  
+
+# 🖼️→🖼️ `img2img` with custom images
+
+```py
+pstring = "An fantasy english family home, dog in the foreground, fantasy, illustration, trending on artstation"
+input_img = "../inputs/halle_at_home_2021_s.JPG"
+
+strength = range(30, 75, 5)
+for s in strength:
+    !python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength {s*0.01} --seed 200 --outdir {outdir}
+```
+
+![home example](media/home_pic_dog.JPG)
+
+
+
+
+
 
 # Features
 # 🖼️→🖼️ `img2img` iterative improvements
@@ -39,72 +68,10 @@ Example from [`argaman123`](hhttps://old.reddit.com/r/StableDiffusion/comments/w
 </br>
 
 
-# 🖼️→🖼️ Characters with Starting Sketch
-
-![Inpainting_given_example](media/jobin-character-progression.png)
-
-
-</br>
-</br>
-
-
-
-# 🖼️→🖼️ Inpainting with `diffusers`
-
-Inpainting allows applying a layer mask to an area of interest – and then running `img2img` with a `text prompt` to generate new content.
-
-   - 📹 Tutorial from [1littlecoder](https://www.youtube.com/watch?v=N913hReVxMM) on youtube and accompanying [Colab Notebook](https://colab.research.google.com/drive/1R2HJvufacjy7GNrGCwgSE3LbQBk5qcS3?usp=sharing#scrollTo=BnobY4zi0Pjs).
-
-   - 🤗 Uses [Huggingface `diffusers` library](https://github.com/huggingface/diffusers).
-
-Example: Adding a dragon to the castle `(1)` and then adding flaming rubble to the gate `(2)`.
-
-![Inpainting_given_example](media/castle_inpainting.png)
-
-```py
-prompt = "A fantasy castle with a dragon defending. Trending on artstation, 
-          precise lineart, award winning, divine"
-
-with autocast("cuda"):
-    images = pipe(prompt=prompt, init_image=init_image, mask_image=mask_image, strength=0.7)["sample"]
-```
-
-
-
-# 🖼️→🖼️ `img2img` with custom images
-
-```py
-pstring = "An fantasy english family home, dog in the foreground, fantasy, illustration, trending on artstation"
-input_img = "../inputs/halle_at_home_2021_s.JPG"
-
-strength = range(30, 75, 5)
-for s in strength:
-    !python optimizedSD/optimized_img2img.py --prompt "{pstring}" --init-img {input_img} --strength {s*0.01} --seed 200 --outdir {outdir}
-```
-
-![home example](media/home_pic_dog.JPG)
 
 
 
 
-
-
-
-
-
-
-</br>
-</br>
-
-# 🖼️→🖼️ `img2img` with `strength` variation
-
-Using an input image to create unlimited variations.
-
-- Img from [`jansteffen` on r/stablediffusion](https://www.reddit.com/r/StableDiffusion/comments/wwmjih/converting_a_minecraft_screenshot_into_a_painting/)
-
-![img2img example](media/img2img_examples.JPG)
-
-</br>
 
 # 📱🖼️ Gradio WebUI by `hlky` 
 
