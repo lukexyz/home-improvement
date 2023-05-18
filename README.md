@@ -48,7 +48,9 @@ prompt = "modern english front garden, with traditional lush green lawn and stri
 
 * Alternative edge control, using `hed-fp16`  
 ```py
-Steps: 30, Sampler: DPM++ SDE Karras, CFG scale: 7, Seed: 3669285758, Size: 512x512, Model hash: bb6e6362d8, Model: chikmix_V1, ControlNet: "preprocessor: softedge_hed, model: control_hed-fp16 [13fee50b]
+Steps: 30, Sampler: DPM++ SDE Karras, CFG scale: 7, Seed: 3669285758, Size: 512x512, 
+Model hash: bb6e6362d8, Model: chikmix_V1, ControlNet: "preprocessor: softedge_hed, 
+model: control_hed-fp16 [13fee50b]
 ```
 ![controlnet backyard example](media/controlnet_backyard.png)
 
